@@ -5,6 +5,11 @@
  */
 public class DataTypeDemo {
 
+  /*
+   * 本例传入到 System.out.println 都是直接常量，也叫字面量
+   * 编译器会给字面量一个默认数据类型，如果你的意图不一致
+   * 可以通过增加额外的标识指导编译器产生正确的数据类型
+   */
   public static void main(String[] args) {
     System.out.println("字符串常量");
     // 字符常量
