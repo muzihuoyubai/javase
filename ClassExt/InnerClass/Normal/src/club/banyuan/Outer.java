@@ -16,7 +16,7 @@ public class Outer {
     private String innerPrivateProp = "innerPrivateProp";
     private String outerPropOverride = "outerPropOverrideByInner";
     public static final int a = 0;
-    public static int b = 2; // 编译错误，非静态内部类中不允许出现静态域，除非是静态常量
+    // public static int b = 2; // 编译错误，非静态内部类中不允许出现静态域，除非是静态常量
 
     public String getOuterPrivateProp() {
       // 内部类可以直接使用外部类的属性，因为内部类实例化的时候必须使用一个外部类的对象。
@@ -29,6 +29,9 @@ public class Outer {
 
     public String getOuterProp() {
       // 在内部类中使用 外部类.this 指代外部类的对象
+      // 使用 外部类.super 指代外部类的父类存储区， super指代内部类父类的存储区，注意内部类的父类并不是外部类
+      // 这里都是指代了Object，但是两个存储区域不同
+      // System.out.println(super.toString().equals(Outer.super.toString()));
       return Outer.this.outerPropOverride;
     }
 
