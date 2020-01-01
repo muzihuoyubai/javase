@@ -2,20 +2,34 @@ package club.banyuan;
 
 import java.util.Arrays;
 
-public class ArrayList extends List {
+public class ArrayList {
 
+  /**
+   * 初始化空间，如果空间不够用，再增加这么多空间
+   */
+  protected static final int INIT_SIZE = 20;
 
-  @Override
+  /**
+   * 用来保存数据的数组，如果数组满了，就重新创建一个数组，长度为当前数组长度+INIT_SIZE
+   */
+  protected Object[] objects = new Object[INIT_SIZE];
+  /**
+   * 记录保存了多少个元素
+   */
+  private int elementCount;
+  /**
+   * 记录一共有多少个可用存储空间
+   */
+  protected int totalSize = INIT_SIZE;
+
   int size() {
     return elementCount;
   }
 
-  @Override
   boolean isEmpty() {
     return elementCount == 0;
   }
 
-  @Override
   boolean add(Object o) {
     // 如果数组满了，进行扩容
     if (elementCount == totalSize) {
@@ -27,7 +41,6 @@ public class ArrayList extends List {
     return true;
   }
 
-  @Override
   boolean remove(Object o) {
     for (int i = 0; i < elementCount; i++) {
       if (objects[i] == o) {
@@ -45,7 +58,6 @@ public class ArrayList extends List {
   }
 
   // 如果横向看的话，重载了remove，如果纵向看的话，就是重写了父类方法
-  @Override
   Object remove(int index) {
     // 抛出非受检异常，不需要catch，用来提醒调用者传入的参数不合法
     if (index < 0 || index >= elementCount) {
@@ -55,7 +67,6 @@ public class ArrayList extends List {
     return remove(objects[index]);
   }
 
-  @Override
   void clear() {
     // 新建一个数组，原始的存储区域由垃圾回收器回收
     objects = new Object[INIT_SIZE];
@@ -63,7 +74,6 @@ public class ArrayList extends List {
     elementCount = 0;
   }
 
-  @Override
   Object get(int index) {
     if (index < 0 || index >= elementCount) {
       throw new ArrayIndexOutOfBoundsException("index不合法：" + index);
@@ -71,7 +81,6 @@ public class ArrayList extends List {
     return objects[index];
   }
 
-  @Override
   Object set(int index, Object element) {
     if (index < 0 || index >= elementCount) {
       throw new ArrayIndexOutOfBoundsException("index不合法：" + index);
@@ -80,6 +89,4 @@ public class ArrayList extends List {
     objects[index] = element;
     return result;
   }
-
-
 }

@@ -3,7 +3,7 @@ package club.banyuan;
 public class Main {
 
   public static void main(String[] args) {
-    List list = new ArrayList();
+    ArrayList list = new ArrayList();
     // 可以同时放不同数据类型的元素，没有约束
     list.add(12);
     list.add("String");
