@@ -1,7 +1,7 @@
 
-class Main {
+class Cal {
 
-    /**
+    /*
      * 显示菜单的选项，使用数组，同时使用数组的长度来判断用户的输出是否合法
      * 用户输入的数字不能大于数组的长度
      */
@@ -35,7 +35,7 @@ class Main {
             switch (flowStatus) {
                 case ROOT:
                     displayRootMenu();
-                    userInput = scanfInt();
+                    userInput = scanInt();
                     // 用户输入不合法
                     if (userInput <= 0 || userInput > ROOT_MENU_LEN) {
                         printf("不存在的选项！\n");
@@ -49,12 +49,12 @@ class Main {
                     break;
                 case OPT_ONE_INPUT:
                     printf("请输入第一个操作数:");
-                    calNumOne = scanfInt();
+                    calNumOne = scanInt();
                     flowStatus = FlowStatus.OPT_TWO_INPUT;
                     break;
                 case OPT_TWO_INPUT:
                     printf("请输入第二个操作数:");
-                    calNumTwo = scanfInt();
+                    calNumTwo = scanInt();
                     calculate(calType, calNumOne, calNumTwo);
                     flowStatus = FlowStatus.ROOT;
                     break;
@@ -69,14 +69,14 @@ class Main {
      *
      * @return
      */
-    static public int scanfInt() {
+    static public int scanInt() {
         java.util.Scanner sc = new java.util.Scanner(System.in);
         String input = sc.nextLine();
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             printf("输入不合法，请重新输入\n");
-            return scanfInt();
+            return scanInt();
         }
     }
 

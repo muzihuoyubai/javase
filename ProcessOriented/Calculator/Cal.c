@@ -1,7 +1,12 @@
 #include <stdio.h>
 
-static char *ROOT_MENU[] = {"要进行哪种运算？\n", "1.加法\n", "2.减法\n", "3.乘法\n", "4.除法\n", "5.退出\n"};
-static int ROOT_MENU_LEN = sizeof(ROOT_MENU) / sizeof(char *);
+/*
+ * 显示菜单的选项，使用数组，同时使用数组的长度来判断用户的输出是否合法
+ * 用户输入的数字不能大于数组的长度
+ */
+char *ROOT_MENU[] = {"要进行哪种运算？\n", "1.加法\n", "2.减法\n", "3.乘法\n", "4.除法\n", "5.退出\n"};
+
+int ROOT_MENU_LEN = sizeof(ROOT_MENU) / sizeof(char *);
 
 // 流程状态枚举
 enum FlowStatus {
@@ -13,13 +18,13 @@ enum CalculateType {
     ADD, SUB, MUL, DIV, NONE
 };
 
-static void displayRootMenu();
+void displayRootMenu();
 
-static int scanfInt();
+int scanInt();
 
-static void calculate(enum CalculateType calType, int calNumOne, int calNumTwo);
+void calculate(enum CalculateType calType, int calNumOne, int calNumTwo);
 
-static enum CalculateType getCalType(int userInput);
+enum CalculateType getCalType(int userInput);
 
 int main() {
     // 记录第一个操作数
@@ -37,7 +42,7 @@ int main() {
         switch (flowStatus) {
             case ROOT:
                 displayRootMenu();
-                userInput = scanfInt();
+                userInput = scanInt();
                 // 用户输入不合法
                 if (userInput <= 0 || userInput > ROOT_MENU_LEN) {
                     printf("不存在的选项！\n");
@@ -51,12 +56,12 @@ int main() {
                 break;
             case OPT_ONE_INPUT:
                 printf("请输入第一个操作数:");
-                calNumOne = scanfInt();
+                calNumOne = scanInt();
                 flowStatus = OPT_TWO_INPUT;
                 break;
             case OPT_TWO_INPUT:
                 printf("请输入第二个操作数:");
-                calNumTwo = scanfInt();
+                calNumTwo = scanInt();
                 calculate(calType, calNumOne, calNumTwo);
                 flowStatus = ROOT;
                 break;
@@ -67,26 +72,26 @@ int main() {
     return 0;
 }
 
-static int scanfInt() {
+int scanInt() {
     int input;
     int rlt = scanf("%d", &input);
     if (rlt != 1) {
         printf("输入不合法，请重新输入\n");
         // 清空缓冲区数据
         while (getchar() != '\n');
-        return scanfInt();
+        return scanInt();
     }
     return input;
 }
 
-static void displayRootMenu() {
+void displayRootMenu() {
     for (int i = 0; i < ROOT_MENU_LEN; i++) {
         printf("%s", ROOT_MENU[i]);
     }
     printf("请输入：");
 }
 
-static void calculate(enum CalculateType calType, int calNumOne, int calNumTwo) {
+void calculate(enum CalculateType calType, int calNumOne, int calNumTwo) {
     switch (calType) {
         case ADD:
             printf("%d + %d = %d\n", calNumOne, calNumTwo, calNumOne + calNumTwo);
@@ -105,7 +110,7 @@ static void calculate(enum CalculateType calType, int calNumOne, int calNumTwo) 
     }
 }
 
-static enum CalculateType getCalType(int userInput) {
+enum CalculateType getCalType(int userInput) {
     switch (userInput) {
         case 1:
             return ADD;
