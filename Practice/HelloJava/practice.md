@@ -16,7 +16,7 @@
 
 ## 练习提交路径
 
-请将练习题答案以markdown格式保存在$GIT/javase-practice/HelloJava/ans.md
+请将练习题答案以markdown格式保存在$GIT/javase-practice/HelloJava/practice.md
 
 将HelloWorld.java保存在$GIT/javase-practice/HelloJava/HelloWorld.java
 
