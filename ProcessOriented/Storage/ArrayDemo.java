@@ -20,14 +20,9 @@ public class ArrayDemo {
     int[] arrInit1 = {1, 2, 3, 4, 5};
 
     // 可以先声明，然后在创建并赋值
-    int[] arrInit2;
-    arrInit2 = new int[]{1, 2, 3, 4, 5};
-
-    // 如果不赋值，则无法使用，变量必须被初始化之后才能使用
-    // int[] nullArray; // 对于下面println的时候将报错
-    int[] nullArray = null;
-    System.out.println(nullArray); // null
-    // System.out.println(nullArray.length); // java.lang.NullPointerException
+    arrInit1 = new int[]{1, 2, 3, 4, 5};
+    // 这个时候就不行了，大括号加数值只能在声明数组变量的时候使用
+    // arrInit1 = {1, 2, 3, 4, 5}; // 编译报错
 
     /*
      * 数组的长度
@@ -40,18 +35,30 @@ public class ArrayDemo {
 
     // 可以创建出一个数组长度为0的数组
     int[] emptyArr = new int[0];
+    System.out.println(emptyArr.length); // 0
 
     /*
-    // 不允许访问不存在的数组元素，将出现异常
-    System.out.println(intArr3[5]); // 运行将报错 ArrayIndexOutOfBoundsException
-    */
-
+     * 数组的访问
+     */
     // 使用for each遍历数组
     int[] foreachArr = new int[2];
     for (int elem : foreachArr) {
       // 分别输出两个0，数组在创建的时候默认进行了初始化
       System.out.println(elem);
     }
+
+    // 不允许访问不存在的数组元素，将出现异常
+    // 运行将报错 ArrayIndexOutOfBoundsException，注意是运行时报错，编译时可以通过
+    // System.out.println(foreachArr[5]);
+
+    /*
+     * 引用数据类型
+     */
+    // 如果不赋值，则无法使用，变量必须被初始化之后才能使用
+    // int[] nullArray; // 对于下面println的时候将报错
+    int[] nullArray = null;
+    System.out.println(nullArray); // null
+    // System.out.println(nullArray.length); // java.lang.NullPointerException
 
     // 数组变量的相互赋值，是赋值的引用，对其中一个内容进行修改，会被另一个数组变量获取到
     int[] refArr1 = new int[2];
@@ -73,6 +80,23 @@ public class ArrayDemo {
     System.out.println((new float[1])[0]); // 0.0
     System.out.println((new double[1])[0]); // 0.0
     System.out.println((new String[1])[0]); // null
+
+    /*
+     * 二维数组
+     */
+    int[][] twoDimensionalArr;
+    // 二维数组的创建只需要指定一维的大小就行了，因为创建了一个引用的数组，大小是3，无论每个引用指向的内容是多大都无所谓
+    twoDimensionalArr = new int[3][];
+    // 二维数组的长度就是一维数组的长度
+    System.out.println(twoDimensionalArr.length); // 3
+    // 如果没有指定二维的大小，那么每个引用里面的内容都是null
+    // System.out.println(twoDimensionalArr[0].length); // java.lang.NullPointerException
+
+    // 可以同时指定维度
+    twoDimensionalArr = new int[4][3];
+    System.out.println(twoDimensionalArr.length); // 4
+    // 如果指定了二维的大小，那么就会连带创建了每个二维的数组，这样引用中就不是null
+    System.out.println(twoDimensionalArr[0].length); // 3
   }
 
 }
