@@ -41,6 +41,9 @@ public class ArrayDemo {
     intArr6[1] = 20;
     System.out.println(intArr5[1]); // 输出20
 
+    
+    int[] a = null;
+    System.out.println(a.length);
   }
 
 }

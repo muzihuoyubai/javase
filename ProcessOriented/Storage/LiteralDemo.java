@@ -1,0 +1,99 @@
+/**
+ * 数据类型的演示
+ *
+ * @author www.banyuan.club
+ */
+public class LiteralDemo {
+
+  /*
+   * 本例传入到 System.out.println 都是直接常量，也叫字面量
+   * 编译器会给字面量一个默认数据类型，如果数据类型和实际意图不一致
+   * 可以通过增加额外的标识来指定数据类型
+   */
+  public static void main(String[] args) {
+
+    /*
+     * 整数字面量
+     * 以下使用不同的方式表示十进制数字255
+     */
+    // 十进制表示
+    System.out.println(255);
+
+    // 十六进制
+    System.out.println(0xFF);
+
+    // 八进制数，不建议使用此方式表示数字，因为容易混淆
+    System.out.println(0377);
+
+    // java7 之后 使用0b开头的二进制表示
+    System.out.println(0b11111111);
+    // 可以使用下划线分割方便阅读
+    System.out.println(0b1111_1111);
+
+    /*
+     * 整型字面量指定数据类型
+     * 如果不指定数据类型，则默认是int数据类型，可以使用l/L来指定为long类型的字面量
+     */
+    // 表示 -1，默认整数字面量是int类型，0xFFFFFFFF = 4294967295 ，int数据类型保存不了这么大的正数
+    // 实际上在32bits下，所有bit都是1，因此对于int来讲，就代表的是数字-1，因为所有bit都是1表示 -1的补码
+    System.out.println(0xFFFFFFFF);
+
+    // 字面量超出了整数的表示范围，编译不通过
+    // System.out.println(0x1FFFFFFFF); // 编译报错
+
+    // 表示4294967295，后面使用L或l 来标识是long类型的整数
+    // 建议使用L方便阅读，因为l和1长得比较像
+    System.out.println(0xFFFFFFFFL);
+
+    /*
+     * 小数字面量
+     */
+    System.out.println(3.14);
+    // 使用科学计数法的方式表示小数 E或e 均可，这里表示10的-2次方
+    System.out.println(314E-2); // 3.14
+    System.out.println(0.0314e2); // 3.14
+
+    /*
+     * 小数字面量，指定数据类型
+     * 默认小数字面量的数据类型是double
+     */
+    // 结尾使用D或d表示double数据类型
+    System.out.println(3.14D);
+    // 结尾使用F或f表示float数据类型
+    System.out.println(3.14F);
+
+    // 因为float能表示最大的数量级为e38，这样编译不报错
+    System.out.println(3.14E39);
+
+    // 结尾使用F表示是float类型的字面量，但是超出了float的表示范围，所以编译报错
+    // System.out.println(3.14E39F); // 编译报错
+
+    // 浮点数存在舍入误差，将会输出0.8999999999999999
+    System.out.println(2.0 - 1.1);
+
+    /*
+     * boolean 的字面量，只有两种 true和false
+     */
+    System.out.println(true);
+    System.out.println(false);
+
+    /*
+     * 字符字面量
+     * 使用单引号括起来的字符、转义字符和Unicode表示的字符
+     */
+    System.out.println('c');
+    System.out.println('\n');
+    // unicode 字符，这里表示一个'的'汉字，u后面跟着4个十六进制字符
+    // 即从 0000 ~ FFFF 共65536种组合，超出这些组合范围外的字符，例如emoji无法使用char来表示
+    System.out.println('\u7684');
+
+    /*
+     * String（字符串）类型字面量
+     * 使用双引号括起来
+     */
+    System.out.println("字符串字面量");
+    // 表示一个emoji字符（码点 U+1F600），这个字符超出了char的存储范围，不能用char进行存储
+    System.out.println("\uD83D\uDE00");
+
+  }
+}
