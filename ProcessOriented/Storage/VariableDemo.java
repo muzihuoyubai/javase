@@ -17,6 +17,9 @@ public class VariableDemo {
     // 变量开头不能使用数字
     // int 2a; // 编译报错
 
+    // 建议使用驼峰命名法命名变量，使用名词来命名变量
+    String variableName = "驼峰命名的变量";
+
     /*
      * 变量使用之前需要初始化
      */
