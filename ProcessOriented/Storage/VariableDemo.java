@@ -30,7 +30,7 @@ public class VariableDemo {
     */
 
     /*
-    // 编译器没有办法做出正确的判断，判断foo变量是否被初始化
+    // 编译器没有办法做出正确的判断，判断foo变量是否被初始化，必须在所有分支中对变量进行赋值
     int foo;
     boolean condition = true;
     if (condition) {
