@@ -26,7 +26,7 @@ public class VariableDemo {
     /*
     // 编译报错，变量未经初始化即使用
     char c;
-    System.out.println(c);
+    System.out.println(c); // 编译报错
     */
 
     /*

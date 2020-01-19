@@ -25,11 +25,11 @@ public class LiteralDemo {
     // 八进制数，不建议使用此方式表示数字，不便于阅读
     System.out.println(0377); // 255
 
-    // java7 之后 使用0b开头的二进制表示
-    System.out.println(0b11111111); // 255
+    // java7 之后 使用0b或0B开头的二进制表示
+    System.out.println(0B11111111); // 255
 
     // 可以使用下划线分割方便阅读
-    System.out.println(0b1111_1111); // 255
+    System.out.println(0B1111_1111); // 255
 
     /*
      * 整型字面量指定数据类型
@@ -96,5 +96,10 @@ public class LiteralDemo {
     // 表示一个emoji字符（码点 U+1F600），这个字符超出了char的存储范围，不能用char进行存储
     System.out.println("\uD83D\uDE00");
 
+    /*
+     * null 空引用
+     */
+    // 原因将在后续讲解
+    // System.out.println(null); // 编译报错
   }
 }

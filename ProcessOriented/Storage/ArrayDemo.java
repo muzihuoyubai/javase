@@ -37,19 +37,22 @@ public class ArrayDemo {
     int[] emptyArr = new int[0];
     System.out.println(emptyArr.length); // 0
 
-    /*
-     * 数组的访问
-     */
-    // 使用for each遍历数组
-    int[] foreachArr = new int[2];
-    for (int elem : foreachArr) {
-      // 分别输出两个0，数组在创建的时候默认进行了初始化
-      System.out.println(elem);
-    }
-
     // 不允许访问不存在的数组元素，将出现异常
+    int[] indexOutArr = new int[2];
     // 运行将报错 ArrayIndexOutOfBoundsException，注意是运行时报错，编译时可以通过
-    // System.out.println(foreachArr[5]);
+    // System.out.println(indexOutArr[5]);
+
+    /*
+     * 数组的初始值
+     */
+    System.out.println((new int[1])[0]); // 0
+    System.out.println((new byte[1])[0]); // 0
+    System.out.println((new short[1])[0]); // 0
+    System.out.println((new char[1])[0]); // \u0000 空字符
+    System.out.println((new boolean[1])[0]); // false
+    System.out.println((new float[1])[0]); // 0.0
+    System.out.println((new double[1])[0]); // 0.0
+    System.out.println((new String[1])[0]); // null
 
     /*
      * 引用数据类型
@@ -69,17 +72,6 @@ public class ArrayDemo {
     refArr2[1] = 20;
     System.out.println(refArr1[1]); // 输出20
 
-    /*
-     * 数组的初始值
-     */
-    System.out.println((new int[1])[0]); // 0
-    System.out.println((new byte[1])[0]); // 0
-    System.out.println((new short[1])[0]); // 0
-    System.out.println((new char[1])[0]); // \u0000 空字符
-    System.out.println((new boolean[1])[0]); // false
-    System.out.println((new float[1])[0]); // 0.0
-    System.out.println((new double[1])[0]); // 0.0
-    System.out.println((new String[1])[0]); // null
 
     /*
      * 二维数组
@@ -93,10 +85,10 @@ public class ArrayDemo {
     // System.out.println(twoDimensionalArr[0].length); // java.lang.NullPointerException
 
     // 可以同时指定维度
-    twoDimensionalArr = new int[4][3];
-    System.out.println(twoDimensionalArr.length); // 4
+    twoDimensionalArr = new int[3][2];
+    System.out.println(twoDimensionalArr.length); // 3
     // 如果指定了二维的大小，那么就会连带创建了每个二维的数组，这样引用中就不是null
-    System.out.println(twoDimensionalArr[0].length); // 3
+    System.out.println(twoDimensionalArr[0].length); // 2
   }
 
 }
