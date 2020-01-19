@@ -66,12 +66,6 @@ public class LiteralDemo {
     // 结尾使用F或f表示float数据类型
     System.out.println(3.14F);
 
-    // 因为float能表示最大的数量级为e38，这样编译不报错
-    System.out.println(3.14E39);
-
-    // 结尾使用F表示是float类型的字面量，但是超出了float的表示范围，所以编译报错
-    // System.out.println(3.14E39F); // 编译报错
-
     /*
      * boolean 的字面量，只有两种 true和false
      */

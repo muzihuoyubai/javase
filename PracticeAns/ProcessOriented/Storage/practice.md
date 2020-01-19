@@ -13,6 +13,9 @@
 如果在编写代码中遇到了问题，请将问题和解决方式以markdown格式整理下来，记录在本文件中，将文件提交到指定路径下$GIT/ProcessOriented/Storage/practice.md
 
 ## 练习答案
+    // 因为float能表示最大的数量级为e38，这样编译不报错
+    System.out.println(3.14E39);
 
-    
-## 遇到的问题
+    // 结尾使用F表示是float类型的字面量，但是超出了float的表示范围，所以编译报错
+    // System.out.println(3.14E39F); // 编译报错
+## 遭遇到的问题
