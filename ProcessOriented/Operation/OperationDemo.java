@@ -7,12 +7,20 @@ public class OperationDemo {
 
   public static void main(String[] args) {
 
+    long abc = 123412341234123412L;
+
+    double a = abc;
+    System.out.println(a);
+
     // 除法两边操作数都是整型并且被除数为0
     // 则会出现异常 java.lang.ArithmeticException: / by zero
     // System.out.println(1 / 0);
 
     // 浮点数参与的除法，如果出现0作为被除数，则最后结果为Infinity
     System.out.println((1 * 1.0) / 0);
+
+    // 浮点数存在舍入误差
+    System.out.println(2.0 - 1.1); // 0.8999999999999999
 
     // 因为float有效位数在6~7位
     int intOne = 123456789;
@@ -51,6 +59,9 @@ public class OperationDemo {
     System.out.println(3 != 4); // 输出 true
     System.out.println(5 >= 6); // 输出 false
     System.out.println(7 <= 8); // 输出 true
+
+    // 逻辑运算符，参与的两个操作数是boolean类型，返回一个boolean类型
+    System.out.println(1 | 2);
 
   }
 }

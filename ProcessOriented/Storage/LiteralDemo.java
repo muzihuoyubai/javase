@@ -17,33 +17,37 @@ public class LiteralDemo {
      * 以下使用不同的方式表示十进制数字255
      */
     // 十进制表示
-    System.out.println(255);
+    System.out.println(255); // 255
 
     // 十六进制
-    System.out.println(0xFF);
+    System.out.println(0xFF); // 255
 
-    // 八进制数，不建议使用此方式表示数字，因为容易混淆
-    System.out.println(0377);
+    // 八进制数，不建议使用此方式表示数字，不便于阅读
+    System.out.println(0377); // 255
 
     // java7 之后 使用0b开头的二进制表示
-    System.out.println(0b11111111);
+    System.out.println(0b11111111); // 255
+
     // 可以使用下划线分割方便阅读
-    System.out.println(0b1111_1111);
+    System.out.println(0b1111_1111); // 255
 
     /*
      * 整型字面量指定数据类型
      * 如果不指定数据类型，则默认是int数据类型，可以使用l/L来指定为long类型的字面量
      */
-    // 表示 -1，默认整数字面量是int类型，0xFFFFFFFF = 4294967295 ，int数据类型保存不了这么大的正数
-    // 实际上在32bits下，所有bit都是1，因此对于int来讲，就代表的是数字-1，因为所有bit都是1表示 -1的补码
-    System.out.println(0xFFFFFFFF);
-
     // 字面量超出了整数的表示范围，编译不通过
     // System.out.println(0x1FFFFFFFF); // 编译报错
-
+    // System.out.println(4294967295); // 编译报错
     // 表示4294967295，后面使用L或l 来标识是long类型的整数
     // 建议使用L方便阅读，因为l和1长得比较像
     System.out.println(0xFFFFFFFFL);
+    System.out.println(4294967295L);
+
+    // 0xFFFFFFFF 使用int数据类型的时候，值是-1，int的32bit，所有bit都是1，因此对于int来讲，就代表的是数字-1，
+    System.out.println(0xFFFFFFFF); // -1
+
+    // 使用long数据类型的时候，值是4294967295，因为long是64位，前面还有16个0
+    System.out.println(0xFFFFFFFFL); // 4294967295
 
     /*
      * 小数字面量
@@ -68,24 +72,21 @@ public class LiteralDemo {
     // 结尾使用F表示是float类型的字面量，但是超出了float的表示范围，所以编译报错
     // System.out.println(3.14E39F); // 编译报错
 
-    // 浮点数存在舍入误差，将会输出0.8999999999999999
-    System.out.println(2.0 - 1.1);
-
     /*
      * boolean 的字面量，只有两种 true和false
      */
-    System.out.println(true);
-    System.out.println(false);
+    System.out.println(true); // true
+    System.out.println(false); // false
 
     /*
      * 字符字面量
      * 使用单引号括起来的字符、转义字符和Unicode表示的字符
      */
-    System.out.println('c');
-    System.out.println('\n');
+    System.out.println('c'); // c
+    System.out.println('\n'); // 输出一个空行
     // unicode 字符，这里表示一个'的'汉字，u后面跟着4个十六进制字符
     // 即从 0000 ~ FFFF 共65536种组合，超出这些组合范围外的字符，例如emoji无法使用char来表示
-    System.out.println('\u7684');
+    System.out.println('\u7684'); // 的
 
     /*
      * String（字符串）类型字面量
