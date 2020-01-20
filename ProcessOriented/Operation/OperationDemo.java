@@ -6,6 +6,52 @@
 public class OperationDemo {
 
   public static void main(String[] args) {
+
+    /*
+     * 算数运算符
+     */
+    int a = 20;
+    int b = 5;
+    System.out.println(a + b); // 25
+    System.out.println(a - b); // 15
+    System.out.println(a / b); // 4
+    System.out.println(a * b); // 100
+    System.out.println(a % b); // 0
+    System.out.println(+a); // 20
+    System.out.println(-a); // -20
+
+    int selfOperation = 5;
+    // 相当于
+    // System.out.println(selfOperation);
+    // selfOperation = selfOperation + 1;
+    System.out.println(selfOperation++); // 5
+
+    selfOperation = 5;
+    System.out.println(selfOperation--); // 5
+
+    selfOperation = 5;
+    // 相当于
+    // selfOperation = selfOperation - 1;
+    // System.out.println(selfOperation);
+    System.out.println(--selfOperation); // 4
+
+    selfOperation = 5;
+    System.out.println(++selfOperation); // 6
+
+    /*
+     * 移位运算符
+     * Integer.toBinaryString 用来将int转换为二进制的字符串，方便查看结果
+     * 高位的0都不输出
+     */
+    System.out.println(Integer.toBinaryString(0B1110_0010 & 0B1000_1100)); // 10000000
+    System.out.println(Integer.toBinaryString(0B1110_0010 | 0B1000_1100)); // 11101110
+    System.out.println(Integer.toBinaryString(0B1110_0010 ^ 0B1000_1100)); // 1101110
+    // 注意默认是int数据类型，所以取非高位的0都变为1
+    System.out.println(Integer.toBinaryString(~0B1110_0010)); // 11111111111111111111111100011101
+    System.out.println(Integer.toBinaryString(0B1110_0010 << 4)); // 111000100000
+    System.out.println(Integer.toBinaryString(0B1110_0010 >> 4)); // 1110
+    System.out.println(Integer.toBinaryString(0B1110_0010 >>> 4)); // 1110
+
     // 0xFFFFFFFF 表示 -1 因此可以赋值给short
     long lo = 123456;
     double dou = lo;
@@ -14,15 +60,8 @@ public class OperationDemo {
 
     long abc = 123412341234123412L;
 
-    double a = abc;
-    System.out.println(a);
-
-    // 除法两边操作数都是整型并且被除数为0
-    // 则会出现异常 java.lang.ArithmeticException: / by zero
-    // System.out.println(1 / 0);
-
-    // 浮点数参与的除法，如果出现0作为被除数，则最后结果为Infinity
-    System.out.println((1 * 1.0) / 0);
+    // double a = abc;
+    // System.out.println(a);
 
     // 浮点数存在舍入误差
     System.out.println(2.0 - 1.1); // 0.8999999999999999
