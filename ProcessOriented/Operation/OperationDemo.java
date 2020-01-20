@@ -6,6 +6,11 @@
 public class OperationDemo {
 
   public static void main(String[] args) {
+    // 0xFFFFFFFF 表示 -1 因此可以赋值给short
+    long lo = 123456;
+    double dou = lo;
+    int uu = -5;
+    System.out.println(-uu);
 
     long abc = 123412341234123412L;
 
