@@ -26,8 +26,8 @@ public class ConversionDemo {
     // 两个short运算后结果是int数据类型，不能再赋值给short
     // short result = shortOne + shortTwo; // 编译报错
     // 运算赋值符号一起的时候，默认进行了强制类型转换
-    // 相当于 shortTow = (short) (shortTwo + shortThree)
-    // shortTwo += shortThree; // 可以正常运算
+    // 相当于 shortTow = (short) (shortOne + shortTwo)
+    // shortTwo += shortTwo; // 可以正常运算
 
     /*
      * 强制数据类型转换
