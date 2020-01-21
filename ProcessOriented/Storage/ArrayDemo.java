@@ -72,6 +72,17 @@ public class ArrayDemo {
     refArr2[1] = 20;
     System.out.println(refArr1[1]); // 输出20
 
+    /*
+     * foreach 遍历数组
+     */
+    // 使用for each遍历数组
+    int[] foreachArr = new int[2];
+    foreachArr[0] = 1;
+    foreachArr[1] = 20;
+    // 依次输出foreachArr[0]和foreachArr[1]的内容
+    for (int elem : foreachArr) {
+      System.out.println(elem);
+    }
 
     /*
      * 二维数组

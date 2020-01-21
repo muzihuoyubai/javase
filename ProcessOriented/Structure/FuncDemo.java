@@ -6,6 +6,14 @@
 public class FuncDemo {
 
   public static void main(String[] args) {
+    // 不允许在代码块内部定义和方法局部变量和形参同名的变量
+    int intOne = 5;
+    boolean flag = true;
+    if (flag) {
+      // int intOne = 6; // 编译报错 intOne 和外部变量同名
+      // String[] args = new String[2]; // 编译报错 args和形参同名
+    }
+
     int a = 5;
     int b = 10;
     System.out.println(a); // 5
@@ -41,11 +49,4 @@ public class FuncDemo {
       return arr[1];
     }
   }
-/*
-  // 单纯修改参数名称不构成重载
-  // 编译报错max方法已经被定义
-  static int max(int[] test) {
-    return 0;
-  }
-  */
 }
