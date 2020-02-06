@@ -2,7 +2,7 @@ package club.banyuan.machine;
 
 import club.banyuan.animal.Elephant;
 
-class Main {
+public class Main {
   static Elephant createElephant(int heightInCM) {
     System.out.printf("创建一个大象，高度%d厘米\n", heightInCM);
     // 使用定义的类作为数据类型
