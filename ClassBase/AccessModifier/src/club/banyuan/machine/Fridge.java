@@ -7,23 +7,22 @@ public class Fridge {
   private int heightInCM;
   private Elephant storage;
 
-  // get
-  public int getHeightInCM() {
-    return heightInCM;
+  public void setStorage(Elephant elephant) {
+    storage = elephant;
   }
 
-  // set
-  public void setHeightInCM(int heightInCM) {
-    this.heightInCM = heightInCM;
+  public Elephant getStorage(){
+  	return storage;
   }
 
-  public Elephant getStorage() {
-    return storage;
+  public void setHeightInCM(int height){
+  	heightInCM = height;
   }
 
-  public void setStorage(Elephant storage) {
-    this.storage = storage;
+  public int getHeightInCM(){
+  	return heightInCM;
   }
+
 }
 
 
