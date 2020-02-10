@@ -5,7 +5,7 @@ public class Elephant {
   private int id;
   private int heightInCM;
   // 最后创建的对象的id，如果一个对象都没有创建，则是0
-  public static int lastId = 0;
+  public int lastId;
 
   public Elephant() {
     this(350);
