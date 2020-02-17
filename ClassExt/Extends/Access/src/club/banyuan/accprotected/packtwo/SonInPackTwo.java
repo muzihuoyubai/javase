@@ -4,9 +4,12 @@ import club.banyuan.accprotected.packone.FatherInPackOne;
 
 public class SonInPackTwo extends FatherInPackOne {
 
-  public String sonMethod() {
-    System.out.println("sonMethod");
-    // 子类内部可以调用父类的protected方法，即便和父类不同包
-    return fatherMethod();
+  // 子类和父类不同包，可以使用父类中定义的 protected 的成员和方法
+  public String getFiled() {
+    return "get father filed" + fatherField;
+  }
+
+  public String callMethod() {
+    return "call father method " + fatherMethod();
   }
 }
