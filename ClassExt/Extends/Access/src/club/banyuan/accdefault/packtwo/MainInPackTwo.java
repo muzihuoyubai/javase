@@ -1,6 +1,5 @@
 package club.banyuan.accdefault.packtwo;
 
-import club.banyuan.accdefault.packone.FatherInPackOne;
 import club.banyuan.accdefault.packone.SonInPackOne;
 
 public class MainInPackTwo {
