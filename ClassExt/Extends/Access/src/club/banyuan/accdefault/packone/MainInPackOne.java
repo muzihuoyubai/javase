@@ -7,7 +7,7 @@ public class MainInPackOne {
   public static void main(String[] args) {
     SonInPackOne sonInPackOne = new SonInPackOne();
 
-    // 同包下的类可以访问子类继承的 默认权限 的属性和方法
+    // 同包下的类可以访问子类继承的 默认权限 的成员和方法
     System.out.println(sonInPackOne.fatherField);
     System.out.println(sonInPackOne.fatherMethod());
 
