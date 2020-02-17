@@ -19,7 +19,7 @@ public class MainInPackOne {
     System.out.println(sonInPackOne.sonMethod());
 
     // 子类和父类不同包，那么就算当前类和父类同包，也不能透过子类访问父类方法
-    System.out.println(sonInPackTwo.fatherProp); // 编译报错
-    System.out.println(sonInPackTwo.fatherMethod()); // 编译报错
+    // System.out.println(sonInPackTwo.fatherProp); // 编译报错
+    // System.out.println(sonInPackTwo.fatherMethod()); // 编译报错
   }
 }

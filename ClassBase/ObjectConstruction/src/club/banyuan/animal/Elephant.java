@@ -1,9 +1,7 @@
 package club.banyuan.animal;
 
 public class Elephant {
-
   private int heightInCM;
-
   public Elephant(){
     this(350);
   }

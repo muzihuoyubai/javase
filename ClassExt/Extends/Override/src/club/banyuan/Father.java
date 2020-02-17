@@ -2,27 +2,27 @@ package club.banyuan;
 
 public class Father {
 
-  private void fatherPrivate() {
+  private void methodA() {
 
   }
 
-  public void fatherVoid() {
+  public void methodB() {
     System.out.println("fatherMethod");
   }
 
-  public Father fatherReturnObjExtends() {
+  public Father methodD() {
     return this;
   }
 
-  public void fatherObjParam(Son father) {
+  public void methodE(Son father) {
 
   }
 
-  public int fatherInt() {
+  public int methodC() {
     return 1;
   }
 
-  void fatherAccessDefault() {
+  void methodF() {
 
   }
 }

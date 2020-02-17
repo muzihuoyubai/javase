@@ -5,10 +5,10 @@ public class Main {
   public static void main(String[] args) {
     Son son = new Son();
 
-    // 使用属性，这个属性是继承自父类的
+    // 通过子类对象访问父类中定义的成员
     System.out.println(son.familyName);
 
-    // 使用方法，这个方法是继承自父类的
+    // 通过子类对象访问父类中定义的方法
     System.out.println(son.getFamilyFeature());
   }
 }
