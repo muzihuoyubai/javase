@@ -1,4 +1,4 @@
-package club.banyuan.constructor;
+package club.banyuan.constructor.specify;
 
 public class Son extends Father {
 
