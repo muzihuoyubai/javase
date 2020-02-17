@@ -7,19 +7,19 @@ public class Father {
   }
 
   public void methodB() {
-    System.out.println("fatherMethod");
+
+  }
+
+  public int methodC() {
+    return 1;
   }
 
   public Father methodD() {
     return this;
   }
 
-  public void methodE(Son father) {
+  public void methodE(Father son) {
 
-  }
-
-  public int methodC() {
-    return 1;
   }
 
   void methodF() {

@@ -19,7 +19,7 @@ public class Son extends Father {
   // 返回基本数据类型，必须和父类被重写方法一致
   @Override
   public int methodC() {
-    return super.methodC();
+    return 2;
   }
 
   // 子类重写的方法，返回的类必须是父类方法返回的类相同类型，或是其子类
@@ -30,8 +30,12 @@ public class Son extends Father {
 
   // 参数列表必须是一模一样才行，不能和返回值一样是子类或父类
   @Override
+  public void methodE(Father father) {
+
+  }
+
   public void methodE(Son father) {
-    super.methodE(father);
+
   }
 
   // 访问权限必须大于等于父类被重写方法的访问权限
