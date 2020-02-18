@@ -34,10 +34,6 @@ public class Son extends Father {
 
   }
 
-  public void methodE(Son father) {
-
-  }
-
   // 访问权限必须大于等于父类被重写方法的访问权限
   // protected > 默认访问权限
   @Override
