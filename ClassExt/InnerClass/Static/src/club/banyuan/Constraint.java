@@ -12,10 +12,4 @@ public interface Constraint {
     String TIGER = "tiger";
     String LION = "lion";
   }
-
-  interface Machine {
-
-    String CRANE = "crane";
-    String FRIDGE = "fridge";
-  }
 }
