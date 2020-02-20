@@ -1,6 +1,7 @@
 package club.banyuan;
 
 import club.banyuan.animal.Animal;
+import club.banyuan.animal.Elephant;
 import club.banyuan.machine.Fridge;
 import club.banyuan.machine.Fridgeable;
 
@@ -13,11 +14,23 @@ public class Main {
     Animal animal = new Animal(300) {
       @Override
       public String getType() {
-        return "匿名动物";
+        return "匿名动物子类";
       }
     };
-    Fridge fridge = new Fridge(500);
-    fridge.setAnimal(animal);
+
+    Elephant elephant = new Elephant(350) {
+      @Override
+      public String getType() {
+        return "大象匿名子类";
+      }
+    };
+
+    // animal的匿名子类无法装入冰箱，因为没有实现Fridgeable接口，匿名类也不支持同时实现接口
+    Fridge fridgeAnimal = new Fridge(500);
+    club.banyuan.machine.Main.putInAnimal(animal, fridgeAnimal);
+
+    Fridge fridgeElephant = new Fridge(500);
+    club.banyuan.machine.Main.putInAnimal(elephant, fridgeElephant);
 
     // 匿名内部类，使用接口创建
     Fridgeable fridgeable = new Fridgeable() {
@@ -31,13 +44,14 @@ public class Main {
     // java8之前，需要显示指定变量是final的，java8之后，编译器可以自动在变量前增加final，被称作Effectively Final
     String type = "大象";
     // type = "大象"; // 这里再次对变量赋值的话，说明这一定不是final类型的变量，编译器无法增加final修饰，会导致匿名内部类里面报错
-    new Animal(300) {
+    Animal animalLocal = new Animal(300) {
       @Override
       public String getType() {
+        // type = "匿名大象"; // 编译报错，因为是final不能被赋值
         return type;
       }
-
     };
 
+    System.out.println(animalLocal.getType());
   }
 }

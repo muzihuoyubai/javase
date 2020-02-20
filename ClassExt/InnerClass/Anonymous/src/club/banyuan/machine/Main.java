@@ -7,7 +7,7 @@ import club.banyuan.animal.Tiger;
 
 public class Main {
 
-  static void putInAnimal(Animal animal, Fridge fridge) {
+  public static void putInAnimal(Animal animal, Fridge fridge) {
     System.out.printf("把%d厘米高的%s装进%d厘米高的冰箱\n", animal.getHeightInCM(), animal.getType(),
         fridge.getHeightInCM());
     if (animal.getHeightInCM() < fridge.getHeightInCM()) {
