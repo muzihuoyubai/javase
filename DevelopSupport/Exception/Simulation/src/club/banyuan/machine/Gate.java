@@ -25,7 +25,7 @@ public class Gate {
   }
 
   /**
-   * 门会随机坏掉
+   * 门会随机坏掉，给了种子，保证每次程序运行的时候第一次关门是坏掉的
    */
   private void randomBroke() throws GateException {
     int rate = random.nextInt(10);
