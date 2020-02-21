@@ -8,9 +8,9 @@ public class ExceptionCodeOrder {
   public void order1() {
     try {
       System.out.print(1);
-      throwGateBrokeException();
+      throwException();
       System.out.print(2);
-    } catch (GateBrokeException e) {
+    } catch (Exception e) {
       System.out.print(3);
     } finally {
       System.out.print(4);
@@ -41,10 +41,11 @@ public class ExceptionCodeOrder {
   public void order3() {
     try {
       System.out.print(1);
-      throwGateBrokeException();
+      throwException();
+      // throwSubException(); // 抛出这个异常的执行顺序是 1 4 5 6
       System.out.print(2);
       // 注意这两个顺序不能颠倒，因为下面的包含了上面的，如果颠倒之后，那GateBrokeException 永远也捕获不到
-    } catch (GateBrokeException e) {
+    } catch (SubException e) {
       System.out.print(3);
     } catch (Exception e) {
       System.out.print(4);
@@ -60,10 +61,10 @@ public class ExceptionCodeOrder {
   public void order4() {
     try {
       System.out.print(1);
-      throwGateBrokeException();
+      throwException();
       System.out.print(2);
       return;
-    } catch (GateBrokeException e) {
+    } catch (Exception e) {
       System.out.print(3);
     } finally {
       System.out.print(4);
@@ -123,7 +124,11 @@ public class ExceptionCodeOrder {
     }
   }
 
-  public void throwGateBrokeException() throws GateBrokeException {
-    throw new GateBrokeException();
+  public void throwException() throws Exception {
+    throw new Exception();
+  }
+
+  public void throwSubException() throws SubException {
+    throw new SubException();
   }
 }
