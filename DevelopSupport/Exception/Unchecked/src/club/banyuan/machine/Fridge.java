@@ -23,7 +23,7 @@ public class Fridge {
       fridgeable.locked();
       fridgeable.frozen(animal.getType());
     } else {
-      System.out.println(animal.getType() + "不能被放入冰箱");
+      throw new IllegalArgumentException(animal.getType() + "不能被放入冰箱");
     }
   }
 

@@ -27,7 +27,7 @@ public enum AnimalType {
         return one;
       }
     }
-    return null;
+    throw new IllegalArgumentException("不合法的code:" + code);
   }
 
   public static AnimalType valueOfByTypeName(String typeName) {
