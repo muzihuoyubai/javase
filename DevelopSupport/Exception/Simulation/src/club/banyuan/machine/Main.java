@@ -14,23 +14,24 @@ public class Main {
       System.out.println("冰箱装不下!");
       return;
     }
-    try {
+    try (fridge;Fridge other = new Fridge()) {
       fridge.openGate();
       fridge.setAnimal(animal);
-      fridge.closeGate();
       System.out.printf("冰箱里面的%s高度是%d厘米\n", animal.getType(), fridge.getAnimal().getHeightInCM());
+      // fridge.closeGate();
     } catch (IllegalArgumentException e) {
       System.out.println(e.getMessage());
       System.out.println("把" + animal.getType() + "放生了");
     } catch (GateException e) {
       System.out.println(e.getMessage());
-    } finally {
-      if(fridge.isGateOpen()){
-        try {
-          fridge.closeGate();
-        } catch (GateException e) {
-          e.printStackTrace();
-        }
+      if (!fridge.isGateOpen()) {
+        System.out.println("放入" + animal.getType() + "失败了");
+      } else {
+        // try {
+        //   fridge.closeGate();
+        // } catch (GateException e1) {
+        //   e1.printStackTrace();
+        // }
       }
     }
   }

@@ -1,35 +1,31 @@
 package club.banyuan.machine;
 
-import java.util.Random;
-
 public class Gate {
 
-  // 使用种子保证每次程序运行后，依次生成的随机数是一样的
-  private static Random random = new Random(1);
   private boolean isOpen;
+  private static int openCount = 0;
 
   public boolean isOpen() {
     return isOpen;
   }
 
   public void open() throws GateException {
-    randomBroke();
+    gateBroke();
     isOpen = true;
     System.out.println("门开了");
   }
 
   public void close() throws GateException {
-    randomBroke();
+    gateBroke();
     isOpen = false;
     System.out.println("门关了");
   }
 
   /**
-   * 门会随机坏掉，给了种子，保证每次程序运行的时候第一次关门是坏掉的
+   * 第二次操作门的时候，抛出异常
    */
-  private void randomBroke() throws GateException {
-    int rate = random.nextInt(10);
-    if (rate > 7) {
+  private void gateBroke() throws GateException {
+    if (++openCount == 2) {
       throw new GateException("门坏掉了");
     }
   }

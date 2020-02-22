@@ -2,7 +2,7 @@ package club.banyuan.machine;
 
 import club.banyuan.animal.Animal;
 
-public class Fridge {
+public class Fridge implements AutoCloseable{
 
   private int heightInCM;
   private Animal animal;
@@ -24,7 +24,6 @@ public class Fridge {
       fridgeable.locked();
       fridgeable.frozen(animal.getType());
     } else {
-      // System.out.println(animal.getType() + "不能被放入冰箱");
       throw new IllegalArgumentException(animal.getType() + "不能被放入冰箱");
     }
   }
@@ -53,6 +52,14 @@ public class Fridge {
     return heightInCM;
   }
 
+  @Override
+  public void close() {
+    try {
+      closeGate();
+    } catch (GateException e) {
+      e.printStackTrace();
+    }
+  }
 }
 
 
