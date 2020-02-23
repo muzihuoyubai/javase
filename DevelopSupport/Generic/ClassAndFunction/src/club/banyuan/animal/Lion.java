@@ -24,7 +24,7 @@ public class Lion extends Animal implements Fridgeable {
     return AnimalType.valueOf(2);
   }
 
-  public void lionMethod(){
+  public void lionMethod() {
     System.out.println("狮子独有的方法");
   }
 }
